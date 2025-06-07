@@ -1,19 +1,13 @@
 {
-  "name": "deeplink-telegram-bot",
+  "name": "deeplink-bot",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.5.0",
-    "node-telegram-bot-api": "^0.66.0",
-    "puppeteer": "^24.10.0",
-    "puppeteer-extra-plugin-stealth": "^2.11.2",
-    "telegraf": "^4.16.3"
-  },
-  "description": ""
+    "puppeteer": "^21.3.8",
+    "fs": "^0.0.1-security",
+    "node-telegram-bot-api": "^0.61.0"
+  }
 }
