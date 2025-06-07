@@ -1,6 +1,7 @@
 {
-  "name": "deeplink-bot",
+  "name": "deeplink-telegram-bot",
   "version": "1.0.0",
+  "description": "Telegram bot to extract TikTok deeplinks",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
