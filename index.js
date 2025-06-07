@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = 'YOUR_TELEGRAM_BOT_TOKEN';
+const token = '8045648382:AAFVn8WDMiWU96FEIa1UjS5z-ZpE4kkgheM';
 const bot = new TelegramBot(token, { polling: true });
 
 console.log('🤖 Bot sedang berjalan...');
