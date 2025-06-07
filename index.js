@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer');
 const fs = require('fs');
 const TelegramBot = require('node-telegram-bot-api');
 
-const token = process.env.BOT_TOKEN;
+const token = 'YOUR_TELEGRAM_BOT_TOKEN';
 const bot = new TelegramBot(token, { polling: true });
 
 console.log('🤖 Bot sedang berjalan...');
@@ -75,7 +75,7 @@ bot.on('message', async (msg) => {
       await browser.close();
 
       if (deeplinks.length > 0) {
-        const fixed = deeplinks[0].replace('intent://', 'snssdk1180://');
+        const fixed = `urls[${allDeeplinks.length}] = "${deeplinks[0].replace('intent://', 'snssdk1180://')}";`;
         allDeeplinks.push(fixed);
       } else {
         await bot.sendMessage(chatId, `❌ Deeplink tidak ditemukan di: ${link}`);
@@ -88,13 +88,10 @@ bot.on('message', async (msg) => {
   }
 
   if (allDeeplinks.length > 0) {
-    const formattedLinks = allDeeplinks.map((link, i) => `urls[${i}] = "${link}";`).join('\n');
-    fs.writeFileSync('deeplink.txt', formattedLinks);
+    fs.writeFileSync('deeplink.txt', allDeeplinks.join('\n'));
     await bot.sendMessage(chatId, `✅ ${allDeeplinks.length} deeplink ditemukan.`, {
       reply_markup: {
-        inline_keyboard: [
-          [{ text: '⬇️ Download .txt', callback_data: 'download_txt' }]
-        ]
+        inline_keyboard: [[{ text: '⬇️ Download .txt', callback_data: 'download_txt' }]]
       }
     });
   } else {
